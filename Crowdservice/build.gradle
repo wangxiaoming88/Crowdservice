@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "com.crowdserviceinc.crowdservice"
+        minSdkVersion 15
+        targetSdkVersion 23
+
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        jumboMode = true
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        disable "ResourceType"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.t'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/jsoup-1.7.2.jar')
+    compile project(':maskedEditText')
+    compile project(':stripe')
+//    compile project(':google-play-services_lib')
+
+//    compile project(':facebook')
+//    compile 'com.google.android.gms:play-services:+'
+//    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.android.gms:play-services:6.5.87'
+
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:support-annotations:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.facebook.android:facebook-android-sdk:4.3.0'
+
+    compile 'com.flurry.android:analytics:6.2.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    compile('org.apache.httpcomponents:httpmime:4.3.6') {
+//        exclude module: 'httpclient'
+    }
+    compile 'org.apache.httpcomponents:httpclient:4.3.6'
+//    compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
+
+    //set mixpanel anaytics library.
+    compile "com.mixpanel.android:mixpanel-android:4.+"
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+    }
+}

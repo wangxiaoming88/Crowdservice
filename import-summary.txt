@@ -1,0 +1,126 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From Crowdservice:
+* ic_launcher-web.png
+* proguard-project.txt
+From MaskedEditText:
+* MaskedEditText.iml
+* proguard.cfg
+From facebook:
+* build.gradle
+From stripe:
+* build.gradle
+* target\
+* target\test-classes\
+* target\test-classes\com\
+* target\test-classes\com\stripe\
+* target\test-classes\com\stripe\android\
+* target\test-classes\com\stripe\android\StripeTest$1.class
+* target\test-classes\com\stripe\android\StripeTest$2.class
+* target\test-classes\com\stripe\android\StripeTest$3.class
+* target\test-classes\com\stripe\android\StripeTest$4.class
+* target\test-classes\com\stripe\android\StripeTest$5.class
+* target\test-classes\com\stripe\android\StripeTest$6.class
+* target\test-classes\com\stripe\android\StripeTest$7.class
+* target\test-classes\com\stripe\android\StripeTest$8.class
+* target\test-classes\com\stripe\android\StripeTest$9.class
+* target\test-classes\com\stripe\android\StripeTest$ErrorTokenCallback.class
+* target\test-classes\com\stripe\android\StripeTest.class
+* target\test-classes\com\stripe\android\test\
+* target\test-classes\com\stripe\android\test\CardTest.class
+* target\test-classes\com\stripe\android\test\TextUtilsTest.class
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+gson-2.2.2.jar => com.google.code.gson:gson:2.2.2
+
+Potentially Missing Dependency:
+-------------------------------
+When we replaced the following .jar files with a Gradle dependency, we
+inferred the dependency version number from the filename. This
+specific version may not actually be available from the repository.
+If you get a build error stating that the dependency is missing, edit
+the version number to for example "+" to pick up the latest version
+instead. (This may require you to update your code if the library APIs
+have changed.)
+
+gson-2.2.2.jar => version 2.2.2 in com.google.code.gson:gson:2.2.2
+
+Replaced Libraries with Dependencies:
+-------------------------------------
+The importer recognized the following library projects as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the source files in your project were of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the library replacement in the import wizard and try
+again:
+
+google-play-services_lib => [com.google.android.gms:play-services:+]
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In MaskedEditText:
+* AndroidManifest.xml => maskedEditText\src\main\AndroidManifest.xml
+* res\ => maskedEditText\src\main\res\
+* src\ => maskedEditText\src\main\java\
+In facebook:
+* AndroidManifest.xml => facebook\src\main\AndroidManifest.xml
+* lint.xml => facebook\lint.xml
+* res\ => facebook\src\main\res\
+* src\ => facebook\src\main\java\
+In stripe:
+* AndroidManifest.xml => stripe\src\main\AndroidManifest.xml
+* libs\junit-4.10.jar => stripe\libs\junit-4.10.jar
+* libs\stripe-java-1.12.0.jar => stripe\libs\stripe-java-1.12.0.jar
+* res\ => stripe\src\main\res\
+* src\main\java\ => stripe\src\main\java\
+* src\test\java\ => stripe\src\main\java\
+In Crowdservice:
+* AndroidManifest.xml => crowdservice\src\main\AndroidManifest.xml
+* lint.xml => crowdservice\lint.xml
+* res\ => crowdservice\src\main\res\
+* src\ => crowdservice\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

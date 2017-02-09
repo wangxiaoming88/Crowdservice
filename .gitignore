@@ -1,0 +1,10 @@
+
+Crowdservice/build/
+
+stripe/build/
+
+maskedEditText/build/
+
+.gradle/
+
+.idea/
